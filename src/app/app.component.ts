@@ -1,7 +1,9 @@
+import { Component, OnInit } from '@angular/core';
+import { HeroService } from './hero.service';
 import { Hero } from './hero';
-import { Component } from '@angular/core';
 
-const HEROES: Hero[] = [
+
+/* const HEROES: Hero[] = [
   {id: 1, name: 'Scorpion'},
   {id: 2, name: 'Sub-Zero'},
   {id: 3, name: 'Raiden'},
@@ -12,18 +14,40 @@ const HEROES: Hero[] = [
   {id: 8, name: 'Jax'},
   {id: 9, name: 'Reptile'},
   {id: 10, name: 'Shang Tsung'}
-]; // The hero data is separated from the class implementation because ultimately the hero names will come from a data service.
+]; // The hero data is separated from the class implementation because ultimately the hero names will come from a data service. */
+
+/* Here's the essential outline for the OnInit interface
+import { OnInit } from '@angular/core';
+
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+  }
+} */
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [HeroService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'There is no knowledge that is no power';
   selectedHero: Hero;
-  heroes = HEROES;
+  heroes: Hero[];
+
+  constructor(private heroService: HeroService) { }
+  /* The constructor itself does nothing.
+  The parameter simultaneously defines a private heroService property and identifies it as a HeroService injection site.
+  Now Angular knows to supply an instance of the HeroService when it creates an AppComponent.*/
+
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
+  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
