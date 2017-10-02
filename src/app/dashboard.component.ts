@@ -4,7 +4,10 @@ import { HeroService } from './hero.service';
 
 @Component({
   selector: 'my-dashboard',
-  templateUrl: './dashboard.component.html'
+  templateUrl: './dashboard.component.html',
+  styleUrls: [ './dashboard.component.css' ] 
+  /* The styleUrls property is an array of style file names (with paths).
+  You could list multiple style files from different locations if you needed them.*/
 })
 export class DashboardComponent implements OnInit {
     heroes: Hero[] = [];

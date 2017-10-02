@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { HeroService } from './hero.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -19,23 +20,7 @@ import { DashboardComponent } from './dashboard.component';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([{
-      path: 'heroes',
-      component: HeroesComponent
-    },
-    {
-      path: 'dashboard',
-      component: DashboardComponent
-    },
-    {
-      path: 'detail/:id',
-      component: HeroDetailComponent
-    },
-    {
-      path: '',
-      redirectTo: '/dashboard',
-      pathMatch: 'full'
-    }])
+    AppRoutingModule
   ],
   providers: [
     HeroService
@@ -44,4 +29,4 @@ import { DashboardComponent } from './dashboard.component';
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule { } // AppModule is focused on identifying the key pieces of the app.
