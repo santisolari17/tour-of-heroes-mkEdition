@@ -1,0 +1,8 @@
+{"kombatants": [
+    {"id": 0, "name": "Scorpion", "variations":["Hellfire","Ninjitsu","Inferno"]},
+    {"id": 1, "name": "Sub-Zero", "variations":["Grandmaster","Unbreakable","Cryomancer"]},
+    {"id": 2, "name": "Reptile", "variations":["Noxious","Deceptive","Nimble"]},
+    {"id": 3, "name": "Ermac", "variations":["Master of Souls","Spectral","Mystic"]},
+    {"id": 4, "name": "Tremor", "variations":["Crystalline","Metallic","Aftershock"]}
+  ]
+}
